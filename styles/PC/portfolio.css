@@ -1,0 +1,23 @@
+#portfolio
+{
+	text-decoration:underline;
+}
+
+.video
+{
+	border: solid black 2px;
+	margin-left:auto;
+	margin-right:auto;
+	width: 64em;
+	height: 36em;
+}
+
+.divideo
+{
+	margin-left:auto;
+	margin-right:auto;
+	width: 64em;
+	margin-top: 5em;
+	margin-bottom: 5em;
+}
+
