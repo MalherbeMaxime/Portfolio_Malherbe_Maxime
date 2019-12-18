@@ -1,0 +1,1 @@
+Les couleurs et l'image de fond sont susceptibles de changer.
