@@ -1,0 +1,69 @@
+*
+{
+ margin: 0;
+ padding: 0;
+}
+
+body
+{
+	background-image: url("../../images/background_alt.png");
+	color: white;
+}
+
+a
+{
+	color:white;
+	font-weight: bold;
+	text-decoration:none;
+}
+
+.menu
+{
+	background-color: #272727;
+	border-bottom: black solid 3px;
+	box-shadow: black 2px 2px 5px;
+}
+
+
+.menu ul
+{
+	list-style-type: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-left: 5%;
+	margin-right: 5%;
+	font-size: 2.5em;
+}
+
+.menu li
+{
+	padding: 1em;
+	transition: 0.3s;
+	border-left: rgba(255,255,255,0.1) solid 1px;
+	border-right: rgba(255,255,255,0.1) solid 1px;
+	box-shadow: 2px 0 10px 1px black, -2px 0 10px -1px black;
+
+}
+
+.menu li:hover
+{
+	background-color: rgba(0,0,0,0.5);
+	transition: 0.3s;
+}
+
+footer
+{
+	text-align: center;
+	background-color: rgba(0,0,0,0.5);
+	width:100%;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	margin-top: 10vw;
+}
+
+footer a
+{
+	font-weight: bold;
+	text-decoration:underline;
+}

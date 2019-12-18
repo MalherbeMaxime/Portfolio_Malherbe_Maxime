@@ -1,0 +1,28 @@
+#accueil
+{
+	text-decoration:underline;
+}
+
+.contenu
+{
+	margin-right:auto;
+	margin-left: auto;
+	width: 35em;
+}
+
+.contenu img
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30%;
+	marin-bottom: 30%;
+	width: 20em;
+}
+
+.contenu p
+{
+	text-align: center;
+	font-size: 4em;
+	background-color: rgba(0,0,0,0.5);
+}
