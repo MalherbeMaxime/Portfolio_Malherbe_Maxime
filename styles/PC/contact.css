@@ -44,12 +44,12 @@ input, textarea
 	width: 100%;
 }
 
-.button { /* div contenant le bouton, sert à le centrer sur la page */
+.button { /* button's div, used to center the button */
 	display: flex;
 	justify-content: center;
 }
 
-button /* Aspect du bouton */
+button /* Aspect of the button */
 {
 	background-color: grey;
 	border-color: #282828;

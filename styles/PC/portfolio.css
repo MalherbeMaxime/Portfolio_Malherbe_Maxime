@@ -8,15 +8,15 @@
 	border: solid black 2px;
 	margin-left:auto;
 	margin-right:auto;
-	width: 64em;
-	height: 36em;
+	width: 1024px;
+	height: 576px;
 }
 
 .divideo
 {
 	margin-left:auto;
 	margin-right:auto;
-	width: 64em;
+	width: 1024px;
 	margin-top: 5em;
 	margin-bottom: 5em;
 }
@@ -33,4 +33,22 @@
 	background-color: rgba(0,0,0,0.5);
 	margin: 5em;
 	padding: 1em;
+}
+
+.illustration1
+{
+	transition:0.5s;
+	background-image:url("../../images/illustration1.jpg");
+	background-attachment:fixed;
+	background-size: cover;
+	filter: blur(4px);
+	opacity:0.4;
+	height: 250px;
+}
+
+.illustration1:hover
+{
+	opacity: 1;
+	transition:0.5s;
+	filter: blur(0);
 }
