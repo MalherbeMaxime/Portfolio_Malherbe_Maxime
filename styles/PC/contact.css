@@ -9,3 +9,60 @@
 	margin: 5em;
 	padding: 1em;
 }
+
+h2
+{
+	text-align:center;
+	border-bottom: rgba(255,255,255,0.2) solid 1px;
+	padding-bottom: 0.5em;
+	font-size: 2em;
+}
+
+form 
+{
+	width: 50%;
+	margin-left:auto;
+	margin-right:auto;
+	display: flex;
+	flex-direction: column;
+}
+
+form div
+{
+	margin-top: 2em;
+	width: 100%;
+}
+
+label 
+{
+  display: inline-block;
+  width: 110px;
+}
+
+input, textarea
+{
+	width: 100%;
+}
+
+.button { /* div contenant le bouton, sert à le centrer sur la page */
+	display: flex;
+	justify-content: center;
+}
+
+button /* Aspect du bouton */
+{
+	background-color: grey;
+	border-color: #282828;
+	padding: 3px;
+	padding-left:15px;
+	padding-right:15px;
+	font-size: 1.5em;
+	color: white;
+}
+
+.g-recaptcha
+{
+	display:flex;
+	justify-content: center;
+	margin-top: 2em;
+}

@@ -22,7 +22,34 @@
 		</header>
 		
 		<div class="contform">
-			PLACEHOLDER FORMULAIRE
+			<h2>Me contacter</h2>
+			<form id="formulairecontact" action="/traitement" method="post">
+			<div>
+				<label for="nom">Nom :</label>
+				<input type="text" id="nom" name="user_nom">
+			</div>
+			<div>
+				<label for="prenom">Prénom :</label>
+				<input type="text" id="prenom" name="user_prenom">
+			</div>
+			<div>
+				<label for="prenom">Entreprise :</label>
+				<input type="text" id="prenom" name="user_entreprise">
+			</div>
+			<div>
+				<label for="mail">Adresse e-mail :</label>
+				<input type="email" id="mail" name="user_mail">
+			</div>
+			<div>
+				<label for="msg">Message :</label>
+				<textarea id="msg" name="user_message"></textarea>
+			</div>
+			<div class="button">
+				<button type="submit">Valider</button>
+			</div>
+			</form>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		<div class="g-recaptcha" data-sitekey="CHANGER"></div>
 		</div>
 
 		<footer>

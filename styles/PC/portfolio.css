@@ -21,3 +21,16 @@
 	margin-bottom: 5em;
 }
 
+.cv
+{
+	background-color: rgba(0,0,0,0.5);
+	margin: 5em;
+	padding: 1em;
+}
+
+.commentaires
+{
+	background-color: rgba(0,0,0,0.5);
+	margin: 5em;
+	padding: 1em;
+}
