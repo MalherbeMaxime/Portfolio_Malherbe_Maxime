@@ -23,6 +23,9 @@
 		<div class="divideo">
 			<iframe class="video" src="http://www.youtube.com/embed/tFw10BEv8UM" frameborder="0" allowfullscreen></iframe>
 		</div>
+		
+			<!-- ------------------------------------------------ -->
+		
 		<div class="menunav">
 			<ul>
 				<li>titre1</li>
@@ -32,14 +35,54 @@
 		<div class="cv">
 			<div>
 				<h2 id="titre1">Titre1</h2>
-				<div class="illustration1">
-				</div>
+				<div class="illustration1"></div>
 				<p>PLACEHOLDER CV</p>
 			</div>
 		</div>
+		
+		<!-- ------------------------------------------------ -->
+		
 		<div class="commentaires">
-			PLACEHOLDER RECOMMENDATIONS/COMMENTAIRES
+			<h2>Recommandations</h2>
+			
+			<div class="com">
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat augue mi, ut fermentum tellus elementum id. Quisque quis nisi magna. Duis ut egestas justo. Maecenas eleifend in lacus nec pretium. Duis non nunc eget nibh sollicitudin mattis. Donec aliquam mi sit amet magna placerat, nec sollicitudin nibh hendrerit. Pellentesque convallis vehicula tellus in sollicitudin."
+				<div class="nomentreprise">
+				Lorem inc
+				</div>
+			</div>
+			<div class="com">
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut libero vehicula, fermentum dui non, egestas nisl. Sed id augue tellus. Aliquam in magna id neque condimentum vehicula in at sapien. Maecenas quis bibendum urna. Nunc dapibus, justo sed dignissim tincidunt, risus erat placerat neque, a rutrum mauris est vitae lectus. Vestibulum nec faucibus leo. Etiam rhoncus purus in nunc posuere, non vestibulum magna fermentum. Sed vehicula eleifend metus quis consequat. Praesent varius id urna id convallis. Cras metus arcu, facilisis eu nulla et, mollis facilisis eros. Aliquam convallis ultricies congue. Proin ornare pretium dapibus."
+				<div class="nomentreprise">
+				Remlo
+				</div>
+			</div>
+			
+			<!-- ------------------------------------------------ -->
+			
+			<h2>Poster un commentaire</h2>
+			<form id="formulairecommentaires" action="/traitement" method="post">
+			<div>
+				<label for="entreprise">Entreprise :</label>
+				<input type="text" id="prenom" name="user_entreprise">
+			</div>
+			<div>
+				<label for="mail">Adresse e-mail :</label>
+				<input type="email" id="mail" name="user_mail">
+			</div>
+			<div>
+				<label for="msg">Message :</label>
+				<textarea id="msg" name="user_message"></textarea>
+			</div>
+			<div class="button">
+				<button type="submit">Valider</button> <!-- Ajouter une case à cocher pour valider la lecture des CGU -->
+			</div>
+			</form>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		<div class="g-recaptcha" data-sitekey="CHANGER"></div> <!-- PENSER A DEFINIR UNE CLE LORS DE LA MISE EN LIGNE DU SITE -->
 		</div>
+		
+		
 		<footer>
 			<div>Vous pouvez consulter les Conditions Générales d'Utilisation <a href="cgu.html" target="_blank">ICI</a></div>
 		</footer>

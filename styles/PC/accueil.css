@@ -10,8 +10,13 @@
 	width: 35em;
 }
 
-.contenu img
+.contenu img /* The picture's state changes from opacity 0 to 1 on refresh */
 {
+
+    animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+    -o-animation: fadein 2s;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -25,4 +30,37 @@
 	text-align: center;
 	font-size: 4em;
 	background-color: rgba(0,0,0,0.5);
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* for Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* for Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* for Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
 }
