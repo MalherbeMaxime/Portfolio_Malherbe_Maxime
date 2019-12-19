@@ -3,6 +3,24 @@
 	text-decoration:underline;
 }
 
+.menunav ul
+{
+	margin: 5em;
+	border-bottom: rgba(255,255,255,0.1) solid 1px;
+	border-top: rgba(255,255,255,0.1) solid 1px;
+	
+}
+
+.menunav li
+{
+	text-align:center;
+	background-color:rgba(0,0,0,0.5);
+	padding: 1em;
+	font-size: 1.1em;
+	list-style: none;
+	text-decoration: underline;
+}
+
 h2
 {
 	text-align:center;
@@ -50,11 +68,29 @@ h2
 	background-attachment:fixed;
 	background-size: cover;
 	filter: blur(4px);
-	opacity:0.4;
+	opacity:0.6;
 	height: 250px;
 }
 
 .illustration1:hover
+{
+	opacity: 1;
+	transition:0.5s;
+	filter: blur(0);
+}
+
+.illustration2
+{
+	transition:0.5s;
+	background-image:url("../../images/illustration2.jpg");
+	background-attachment:fixed;
+	background-size: cover;
+	filter: blur(4px);
+	opacity:0.6;
+	height: 250px;
+}
+
+.illustration2:hover
 {
 	opacity: 1;
 	transition:0.5s;
@@ -87,7 +123,8 @@ input, textarea
 	width: 100%;
 }
 
-.button { /* button's div, used to center the button */
+.button
+{ /* button's div, used to center the button */
 	display: flex;
 	justify-content: center;
 }
@@ -101,6 +138,11 @@ button /* Aspect of the button */
 	padding-right:15px;
 	font-size: 1.5em;
 	color: white;
+}
+
+.buttonCGU
+{
+	display: none;
 }
 
 .g-recaptcha
@@ -120,7 +162,8 @@ button /* Aspect of the button */
 .com
 {
 	margin:1em;
-	margin-top:5em;
+	margin-top:80px;
+	margin-bottom:80px;
 	font-size: 1.2em;
 }
 
@@ -131,4 +174,17 @@ button /* Aspect of the button */
 	text-align: right;
 	margin-right: 5em;
 	font-size: 1rem;
+}
+
+p 
+{
+	font-size: 1.3em;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+article
+{
+	margin-bottom: 200px;
+	border-bottom: rgba(255,255,255,0.2) solid 1px;
 }
