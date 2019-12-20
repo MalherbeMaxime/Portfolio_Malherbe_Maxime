@@ -138,11 +138,23 @@ button /* Aspect of the button */
 	padding-right:15px;
 	font-size: 1.5em;
 	color: white;
+	transition:0.1s;
+}
+
+button:hover
+{
+	transition:0.1s;
+	background-color: #393939;
+}
+
+.txtbuttonCGU
+{
+	display: inline;
 }
 
 .buttonCGU
 {
-	display: none;
+	width: 10px;
 }
 
 .g-recaptcha

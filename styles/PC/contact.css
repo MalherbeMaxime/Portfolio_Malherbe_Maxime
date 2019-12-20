@@ -58,6 +58,23 @@ button /* Aspect of the button */
 	padding-right:15px;
 	font-size: 1.5em;
 	color: white;
+	transition:0.1s;
+}
+
+button:hover
+{
+	background-color: #393939;
+	transition:0.1s;
+}
+
+.txtbuttonCGU
+{
+	display: inline;
+}
+
+.buttonCGU
+{
+	width: 10px;
 }
 
 .g-recaptcha

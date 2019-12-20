@@ -73,3 +73,16 @@ footer a
 	font-weight: bold;
 	text-decoration:underline;
 }
+
+.socialnetworks
+{
+	display:flex;
+	justify-content: space-evenly;
+	margin-left:90%;
+
+}
+
+.reseaux
+{
+	width: 25px;
+}
