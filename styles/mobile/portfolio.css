@@ -1,0 +1,61 @@
+.video
+{
+	width: 80vw;
+	height: 50vw;
+}
+
+.divideo
+{
+	width: 80vw;
+}
+
+.cv
+{
+	margin: 0;
+}
+
+.commentaires
+{
+	margin: 0;
+}
+
+.illustration1
+{
+	display: none;
+}
+
+.illustration2
+{
+	display: none;
+}
+
+.commentaire
+{
+	margin: 0;
+}
+
+.menunav ul
+{
+	margin: 0;
+	margin-bottom: 5em;
+}
+
+.menunav li
+{
+	font-size: 1.5em;
+}
+
+form 
+{
+	width: 80%;
+}
+
+input, textarea
+{
+	height:50px;
+}
+
+#msg
+{
+	height:150px;
+}

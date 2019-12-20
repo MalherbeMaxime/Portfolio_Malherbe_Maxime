@@ -1,0 +1,20 @@
+.contform
+{
+	margin: 0;
+	margin-top: 5em;
+}
+
+form 
+{
+	width: 80%;
+}
+
+input, textarea
+{
+	height:50px;
+}
+
+#msg
+{
+	height:150px;
+}
