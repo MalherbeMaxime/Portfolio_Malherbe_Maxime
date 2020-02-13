@@ -55,6 +55,11 @@ input, textarea
 	height:50px;
 }
 
+.buttonCGU
+{
+	height:0px;
+}
+
 #msg
 {
 	height:150px;

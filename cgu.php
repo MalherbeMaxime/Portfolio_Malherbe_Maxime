@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="utf-8">
-		<title>CGU</title>
-		<link rel="icon" type="image/png" href="images/favicon.png" />
-		<link rel="stylesheet" href="styles/PC/default_style.css" />
-		<link rel="stylesheet" href="styles/PC/cgu.css" />
-		<link rel="icon" type="image/png" href="images/favicon.png" />
-		<link rel="stylesheet" media="screen and (orientation: portrait)" href="styles/mobile/default_style.css" />
-	</head>
+<?php
+	$page = "cgu";
+	include("header.php");
+?>
 
 	<body>
 
@@ -113,6 +106,6 @@ Fusce metus diam, iaculis ac ultricies in, venenatis vitae ex. Praesent blandit 
 
 Duis ullamcorper placerat ultrices. Phasellus et elit placerat, accumsan elit lobortis, eleifend enim. Nullam scelerisque rhoncus neque. Phasellus pharetra imperdiet molestie. Donec imperdiet non justo et mattis. Nunc sagittis tristique lacus eget tempus. Fusce vel velit leo. Maecenas volutpat ex quis lectus consectetur, non ornare ex malesuada. Proin id erat consequat, pretium purus vitae, pellentesque massa. 
 				</p>
-	</body>
-
-</html>
+<?php
+	include("footer.php");
+?>

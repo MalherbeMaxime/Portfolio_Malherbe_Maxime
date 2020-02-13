@@ -10,7 +10,6 @@ body
 	background-color: black;
 	background-attachment: fixed;
 	background-position: center;
-	background-size:contain;
 	color: white;
 }
 
@@ -82,11 +81,22 @@ footer a
 {
 	display:flex;
 	justify-content: space-evenly;
-	margin-left:90%;
+	margin-left:80%;
 
 }
 
 .reseaux
 {
 	width: 25px;
+	vertical-align: sub;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.errors
+{
+	color: red;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.2em;
 }

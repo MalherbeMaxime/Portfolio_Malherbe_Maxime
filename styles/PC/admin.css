@@ -1,0 +1,81 @@
+form 
+{
+	width: 90%;
+	margin-left:auto;
+	margin-right:auto;
+	display: flex;
+	flex-direction: column;
+}
+
+form div
+{
+	margin-top: 1em;
+	width: 100%;
+}
+
+label 
+{
+  display: inline-block;
+  width: 110px;
+}
+
+input, textarea
+{
+	width: 100%;
+}
+
+.contain
+{
+	background-color: rgba(0,0,0,0.5);
+	margin-left: 30%;
+	margin-right: 30%;
+	margin-top: 100px;
+}
+
+.lien
+{
+	display:flex;
+	flex-direction: column;
+	text-align:center;
+	font-size: 2em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	background-color: rgba(255,255,255,0.1);
+}
+
+.lien:hover
+{
+	text-decoration: underline;
+}
+
+.delete
+{
+	text-align: center;
+	width: 100%;
+	color: red;
+	margin-top: 50px;
+	font-size: 1.1em;
+}
+
+.adda
+{
+	font-size: 3em;
+}
+
+.addp
+{
+	border-top: white solid 1px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align:center;
+}
+
+.adda:hover
+{
+	color: gold;
+}
+
+#ordre
+{
+	width: 50px;
+}

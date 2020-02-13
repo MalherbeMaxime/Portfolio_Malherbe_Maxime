@@ -7,10 +7,10 @@
 
 .contenu img /* The picture's state changes from opacity 0 to 1 on refresh */
 {
-	width: 50vw;
+	width: 70vw;
 }
 
 .contenu p
 {
-	font-size: 2em;
+	font-size: 5em;
 }

@@ -1,3 +1,9 @@
+.langs a img
+{
+	width: 40px;
+	margin: 10px;
+}
+
 #accueil
 {
 	text-decoration:underline;
@@ -7,29 +13,68 @@
 {
 	margin-right:auto;
 	margin-left: auto;
-	width: 35em;
+	width: 35%;
 }
 
 .contenu img /* The picture's state changes from opacity 0 to 1 on refresh */
 {
 
-    animation: fadein 2s;
-    -moz-animation: fadein 2s;
-    -webkit-animation: fadein 2s;
-    -o-animation: fadein 2s;
+    animation: fadein 5s;
+    -moz-animation: fadein 5s;
+    -webkit-animation: fadein 5s;
+    -o-animation: fadein 5s;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 30%;
 	marin-bottom: 30%;
-	width: 20em;
+	width: 60%;
 }
 
 .contenu p
 {
+    animation: movement 2s;
+    -moz-animation: movement 2s;
+    -webkit-animation: movement 2s;
+    -o-animation: movement 2s;
 	text-align: center;
 	font-size: 4em;
 	background-color: rgba(0,0,0,0.5);
+}
+
+@keyframes movement {
+    from {
+        margin-top:50%;
+    }
+    to {
+        margin-top:0%;
+    }
+}
+@-moz-keyframes movement { /* for Firefox */
+    from {
+        margin-top:50%;
+    }
+    to {
+        margin-top:0%;
+    }
+}
+
+@-webkit-keyframes movement { /* for Firefox */
+    from {
+        margin-top:50%;
+    }
+    to {
+        margin-top:0%;
+    }
+}
+
+@-o-keyframes movement { /* for Firefox */
+    from {
+        margin-top:50%;
+    }
+    to {
+        margin-top:0%;
+    }
 }
 
 @keyframes fadein {
@@ -63,4 +108,4 @@
     to {
         opacity: 1;
     }
-}
+	

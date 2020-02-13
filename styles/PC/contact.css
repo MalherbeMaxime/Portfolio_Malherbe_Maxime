@@ -70,6 +70,7 @@ button:hover
 .txtbuttonCGU
 {
 	display: inline;
+	vertical-align: baseline;
 }
 
 .buttonCGU
