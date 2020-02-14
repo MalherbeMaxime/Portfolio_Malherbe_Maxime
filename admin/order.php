@@ -5,9 +5,9 @@ include("login.php");
 
 	if($_SESSION["admin"] === TRUE){
 		
-		$sql="SELECT * FROM portfolio ORDER BY ordre ASC";
+		$sql="SELECT * FROM portfolio WHERE lang = :lang ORDER BY ordre ASC, id ASC";
 		$stmt = $pdo->prepare($sql);
-		$stmt->execute();
+		$stmt->execute([":lang" => $_GET['lang']]);
 		$articles = $stmt->fetchAll();
 		
 		if(!empty($_POST)){

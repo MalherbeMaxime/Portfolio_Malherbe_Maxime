@@ -20,17 +20,17 @@ include("login.php");
 		$image = $_POST['image'];
 		$contenu = $_POST['contenu'];
 		
-		$sql="SELECT COUNT(*) AS nb FROM portfolio";
+		$sql="SELECT COUNT(*) AS nb FROM portfolio WHERE lang = :lang";
 		$stmt = $pdo->prepare($sql);
-		$stmt->execute();
+		$stmt->execute([":lang" => $_GET['lang']]);
 		$nb = $stmt->fetch();
 		$number = $nb['nb'] + 1;
 	
-		$sql="INSERT INTO portfolio (titre, image, contenu, ordre) VALUES (:titre, :image, :contenu, $number)";
+		$sql="INSERT INTO portfolio (titre, image, contenu, ordre, lang) VALUES (:titre, :image, :contenu, $number, :lang)";
 		$stmt = $pdo->prepare($sql);
-		$stmt->execute([":titre" => $titre, ":image" => $image, ":contenu" => $contenu,]);
+		$stmt->execute([":titre" => $titre, ":image" => $image, ":contenu" => $contenu, ":lang" => $_GET['lang']]);
 		
-		header('Location: index.php');
+		header('Location: index.php?lang='.$_GET['lang'].'');
 	}
 		
 	echo'

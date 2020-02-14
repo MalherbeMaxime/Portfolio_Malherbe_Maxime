@@ -25,7 +25,7 @@ $lastName = "Nom";
 $firstName = "Prénom";
 $enterprise = "Entreprise";
 $emailAddress ="Adresse e-mail";
-$message = "Message";
+$tr_message = "Message";
 $readTOF = "J'ai lu et accepte les CGU";
 $confirmButton = "Valider";
 
@@ -34,4 +34,10 @@ $confirmButton = "Valider";
 $noComment = "Aucun commentaire pour le moment";
 $recommendation = "Recommandations";
 $postComment = "Poster un commentaire";
+$wasTranslated = "Ce commentaire a été traduit automatiquement";
+
+//mail
+$confirmMail = "Confirmation de demande de contact";
+$requestAccepted = "Votre demande de contact a bien été prise en compte !";
+$sentContactMessage = "Aperçu de votre message:";
 ?>

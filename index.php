@@ -1,6 +1,7 @@
 <?php
 	$page = "accueil";
 	include("header.php");
+	
 ?>
 		<div class="langs">
 			<a href="lang.php?lang=fr"><img src="images/flag-fr-openmoji.png" alt="<?php echo $frflag;?>"></a>

@@ -1,4 +1,35 @@
 <?php 
+
+	//Importation des class Yandex translator
+	use Yandex\Translate\Translator;
+	use Yandex\Translate\Translation;
+	use Yandex\Translate\Exception;
+	// charge l'autoloader de composer
+    require 'vendor/autoload.php';
+	
+	//API key pour Yandex
+	$key = "trnsl.1.1.20200214T083539Z.23a9590cce001877.4cdc04d20a9f138428bb132cca2a6cda4a7b3940";
+	$translator = new Translator($key);
+
+	
+	
+	
+	
+	
+	function addComment($user_message, $lang, $pdo, $user, $originLang)
+	{
+		$sql="INSERT INTO comments (message, user_id, date, lang, origin) VALUES (:user_message, :user_id, NOW(), :lang, :origin)";
+		$stmt = $pdo->prepare($sql);
+		$stmt->execute([
+		":user_message" => $user_message,
+		":user_id" => $user['id'],
+		":lang" => $lang,
+		":origin" => $originLang]);
+	}
+	
+	
+	
+
     //si on a des données dans $_POST, 
     //c'est que le form a été soumis
     if(!empty($_POST)){
@@ -17,7 +48,7 @@
 		$user = $stmt->fetch();
 		
 		if(!empty($user['id'])){
-		$sql="SELECT contact.id, commentairemessage.user_id from commentairemessage, contact WHERE  commentairemessage.user_id = :user_id ";
+		$sql="SELECT contact.id, comments.user_id from comments, contact WHERE  comments.user_id = :user_id ";
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute([":user_id" => $user['id']]);
 		$message = $stmt->fetch();
@@ -60,12 +91,45 @@
         //si le formulaire est toujours valide... 
         if ($formIsValid == true){
 			
-			$sql="INSERT INTO commentairemessage (message, user_id, date) VALUES (:user_message, :user_id, NOW())";
-			$stmt = $pdo->prepare($sql);
-			$stmt->execute([
-			":user_message" => $user_message,
-			":user_id" => $user['id'],
-			]);
+			$detectlang = $translator->detect($user_message);
+			$originLang = $detectlang;
+			addComment($user_message, $detectlang, $pdo, $user, $originLang);
+			
+			if($detectlang == "fr"){
+				$otherlangs = array("en", "it");
+				foreach($otherlangs AS $otherlang){
+					$translation = $translator->translate($user_message, 'fr-'.$otherlang.'');
+					$user_message_translated = $translation;
+					addComment($user_message_translated, $otherlang, $pdo, $user, $originLang);
+				}
+			}
+
+			if($detectlang == "en"){
+				$otherlangs = array("fr", "it");
+				foreach($otherlangs AS $otherlang){
+					$translation = $translator->translate($user_message, 'en-'.$otherlang.'');
+					$user_message_translated = $translation;
+					addComment($user_message_translated, $otherlang, $pdo, $user, $originLang);
+				}
+			}
+			
+			if($detectlang == "it"){
+				$otherlangs = array("en", "fr");
+				foreach($otherlangs AS $otherlang){
+					$translation = $translator->translate($user_message, 'it-'.$otherlang.'');
+					$user_message_translated = $translation;
+					addComment($user_message_translated, $otherlang, $pdo, $user, $originLang);
+				}
+			}
+			
+			if($detectlang != "fr" AND $detectlang != "it" AND $detectlang != "en"){
+				$otherlangs = array("en", "fr", "it");
+				foreach($otherlangs AS $otherlang){
+					$translation = $translator->translate($user_message, ''.$detectlang.'-'.$otherlang.'');
+					$user_message_translated = $translation;
+					addComment($user_message_translated, $otherlang, $pdo, $user, $originLang);
+				}
+			}
 			
         }
     }

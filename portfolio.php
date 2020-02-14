@@ -3,26 +3,32 @@
 	include("header.php");
 	include("traitement_comment.php");
 	
-		$sql="SELECT contact.id, commentairemessage.user_id, commentairemessage.message, contact.entreprise FROM contact, commentairemessage WHERE commentairemessage.user_id = contact.id ";
+		$sql="SELECT contact.id, comments.user_id, comments.message, contact.entreprise, comments.lang, comments.origin FROM contact, comments WHERE comments.user_id = contact.id AND comments.lang = :lang";
 		$stmt = $pdo->prepare($sql);
-		$stmt->execute();
+		$stmt->execute([":lang" => $_SESSION['lang']]);
 		$commentaires = $stmt->fetchAll();
 		
 		
-		$sql="SELECT * FROM portfolio ORDER BY ordre ASC, id ASC";
+		$sql="SELECT * FROM portfolio WHERE lang = :lang ORDER BY ordre ASC, id ASC";
 		$stmt = $pdo->prepare($sql);
-		$stmt->execute();
+		$stmt->execute([":lang" => $_SESSION['lang']]);
 		$articles = $stmt->fetchAll();
 	
 	
 ?>
 
-
-		<div class="video" disablePictureInPicture controlsList="nodownload">
-			<video controls>
-				<source src="https://www.dropbox.com/s/4a9i17fb9hqwmpi/20190202_123156.mp4?dl=1" type="video/mp4">
-			</video>
-		</div>
+<?php
+	
+// La vidéo n'étant disponible qu'en français, je ne l'affiche que lorsque la langue correspond au français
+	if($_SESSION['lang'] == "fr"){
+		echo'
+			<div class="video" disablePictureInPicture controlsList="nodownload">
+				<video controls>
+					<source src="https://www.dropbox.com/s/4a9i17fb9hqwmpi/20190202_123156.mp4?dl=1" type="video/mp4">
+				</video>
+			</div>';
+	}
+?>
 		
 			<!-- ------------------------------------------------ -->
 		
@@ -66,6 +72,9 @@
 				echo	'<div class="nomentreprise">';
 				echo	$commentaire['entreprise'];
 				echo	'</div>';
+				if($commentaire['lang'] != $commentaire['origin']){
+					echo '<span class="infoTranslated"><span class="translated">('.$wasTranslated.'</span> | <a class="yandex" href="http://translate.yandex.com" target="_blank">Powered by Yandex</a> <span class="translated">)</span></span>';
+				}
 				echo '</div>';
 				
 			}
@@ -82,7 +91,7 @@
 				<input type="email" id="mail" name="user_mail">
 			</div>
 			<div>
-				<label for="msg"><?php echo $message; ?> :</label>
+				<label for="msg"><?php echo $tr_message; ?> :</label>
 				<textarea id="msg" name="user_message"></textarea>
 			</div>
 			<script src="https://www.google.com/recaptcha/api.js" async defer></script>

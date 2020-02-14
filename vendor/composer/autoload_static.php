@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit3d9af02cd5cd3bff9b682024aa289489
 {
     public static $prefixLengthsPsr4 = array (
+        'Y' => 
+        array (
+            'Yandex\\Translate\\' => 17,
+        ),
         'P' => 
         array (
             'PHPMailer\\PHPMailer\\' => 20,
@@ -14,6 +18,10 @@ class ComposerStaticInit3d9af02cd5cd3bff9b682024aa289489
     );
 
     public static $prefixDirsPsr4 = array (
+        'Yandex\\Translate\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yandex/translate-api/src',
+        ),
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',

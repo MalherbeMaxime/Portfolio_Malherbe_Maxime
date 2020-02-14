@@ -24,7 +24,7 @@
 				<input type="email" id="mail" name="mail" required>
 			</div>
 			<div>
-				<label for="msg"><?php echo $message; ?> :</label>
+				<label for="msg"><?php echo $tr_message; ?> :</label>
 				<textarea id="msg" name="message" required></textarea>
 			</div>
 			<div>

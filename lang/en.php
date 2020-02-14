@@ -25,7 +25,7 @@ $lastName = "Last name";
 $firstName = "First name";
 $enterprise = "Enterprise";
 $emailAddress ="E-mail address";
-$message = "Message";
+$tr_message = "Message";
 $readTOF = "I accept the Terms Of Service";
 $confirmButton = "Confirm";
 
@@ -34,4 +34,10 @@ $confirmButton = "Confirm";
 $noComment = "There are no comments for the moment";
 $recommendation = "Recommendations";
 $postComment = "Post a comment";
+$wasTranslated = "This comment has been automatically translated";
+
+//mail
+$confirmMail = "Confirmation of contact request";
+$requestAccepted = "Your contact request has been sent !";
+$sentContactMessage = "Your message:";
 ?>

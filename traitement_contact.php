@@ -1,12 +1,11 @@
 <?php 
 
-    // Import PHPMailer classes into the global namespace
-    // These must be at the top of your script, not inside a function
+    // Importation des class PHPMailer
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
 
-    // Load Composer's autoloader
+    // charge l'autoloader de composer
     require 'vendor/autoload.php';
 
     //si on a des données dans $_POST, 
@@ -127,19 +126,8 @@
 
 					// Content
 					$mail->isHTML(true);                                  // Set email format to HTML
-					if($_SESSION['lang'] == "en"){
-						$mail->Subject = "Confirmation of contact request";
-						$mail->Body    = '<h1>Your contact request has been sent !</h1><br><br>Your message:<br><p style="color:grey; white-space:pre-wrap;">'.$user_message.'</p>';
-					}
-					if($_SESSION['lang'] == "it"){
-						$mail->Subject = "Conferma della richiesta di contatto";
-						$mail->Body    = '<h1>La vostra richiesta di contatto è stata presa in considerazione!</h1><br><br>Il vostro messaggio:<br><p style="color:grey; white-space:pre-wrap;">'.$user_message.'</p>';
-					}
-					else{
-						$mail->Subject = "Confirmation de demande de contact";
-						$mail->Body    = '<h1>Votre demande de contact a bien été prise en compte !</h1><br><br>Aperçu de votre message:<br><p style="color:grey; white-space:pre-wrap;">'.$user_message.'</p>';
-					}
-
+					$mail->Subject = $confirmMail;
+					$mail->Body    = '<h1>'.$requestAccepted.'</h1><br><br>'.$sentContactMessage.'<br><p style="color:grey; white-space:pre-wrap;">'.$user_message.'</p>';
 					$mail->send();
 			}
 			
