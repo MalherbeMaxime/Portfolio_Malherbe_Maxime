@@ -48,6 +48,7 @@
 					echo'<nav class="menu">';
 						echo'<ul>';
 							echo '<a id="accueil" href="index.php?lang='.$_GET['lang'].'"><li>ADMIN INDEX</li></a>';
+							echo '<a id="accueil" href="comments.php?lang='.$_GET['lang'].'"><li>Commentaires</li></a>';
 							echo '<a id="portfolio" href="../index.php"><li>Retour au site</li></a>';
 						echo '</ul>';
 					echo '</nav>';

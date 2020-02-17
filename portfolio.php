@@ -3,7 +3,7 @@
 	include("header.php");
 	include("traitement_comment.php");
 	
-		$sql="SELECT contact.id, comments.user_id, comments.message, contact.entreprise, comments.lang, comments.origin FROM contact, comments WHERE comments.user_id = contact.id AND comments.lang = :lang";
+		$sql="SELECT contact.id, comments.user_id, comments.message, contact.entreprise, comments.lang, comments.origin FROM contact, comments WHERE comments.user_id = contact.id AND comments.lang = :lang AND comments.visible = True";
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute([":lang" => $_SESSION['lang']]);
 		$commentaires = $stmt->fetchAll();
