@@ -1,5 +1,9 @@
 <?php 
 
+	if($isCorrect != True){
+		header('Location: 404.php');
+	}
+
     // Importation des class PHPMailer
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
@@ -30,16 +34,16 @@
         if(empty($user_nom) ){
             //on note qu'on a trouvé une erreur ! 
             $formIsValid = false;
-            $errors[] = "Veuillez renseigner votre nom de famille !";
+            $errors[] = $noLastName;
         }
         //mb_strlen calcule la longueur d'une chaîne
         elseif(mb_strlen($user_nom) <= 1){
             $formIsValid = false;
-            $errors[] = "Votre nom de famille doit comporter plus de caractères";
+            $errors[] = $lastNameTooShort;
         }
         elseif(mb_strlen($user_nom) > 50){
             $formIsValid = false;
-            $errors[] = "Votre nom de famille est trop long !";
+            $errors[] = $lastNameTooLong;
         }
 
         //exactement pareil pour le prénom
@@ -47,25 +51,36 @@
         if(empty($user_prenom) ){
             //on note qu'on a trouvé une erreur ! 
             $formIsValid = false;
-            $errors[] = "Veuillez renseigner votre prénom !";
+            $errors[] = $noFirstName;
         }
         //mb_strlen calcule la longueur d'une chaîne
         elseif(mb_strlen($user_prenom) <= 1){
             $formIsValid = false;
-            $errors[] = "Votre prénom doit comporter plus de caractères";
+            $errors[] = $firstNameTooShort;
         }
         elseif(mb_strlen($user_prenom) > 50){
             $formIsValid = false;
-            $errors[] = "Votre prénom est trop long !";
+            $errors[] = $firstNameTooLong;
         }
 
         //validation de l'user_mail
         if(!filter_var($user_mail, FILTER_VALIDATE_EMAIL)){
             $formIsValid = false;
-            $errors[] = "Votre email n'est pas valide !";
+            $errors[] = $emailIsInvalid;
         }
 
-        //si le formulaire est toujours valide... 
+        if(empty($user_entreprise) ){
+            //on note qu'on a trouvé une erreur ! 
+            $formIsValid = false;
+            $errors[] = $noEnterpriseName;
+        }
+
+		if(empty($_POST['g-recaptcha-response'])){
+			$formIsValid = false;
+            $errors[] = $invalidCaptcha;
+		}
+
+        //si le formulaire est toujours valide on insert les données dans la BDD
         if ($formIsValid == true){
 			$sql="INSERT INTO contact (prenom, nom, entreprise, email) VALUES (:user_prenom, :user_nom, :user_entreprise, :user_mail)";
 			$stmt = $pdo->prepare($sql);
@@ -89,7 +104,7 @@
 			]);
 
 
-			//si le formulaire est soumis
+			//si le formulaire est soumis on envoie un mail à moi et à l'utilisateur ayant soumit le formulaire
 			if (!empty($_POST)){
 
 				// Instantiation and passing `true` enables exceptions
@@ -102,7 +117,7 @@
 					$mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
 					$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
 					$mail->Username   = 'malherbe.notifs@gmail.com';                     // SMTP username
-					$mail->Password   = 'PassePartoutDu69';                               // SMTP password
+					$mail->Password   = 'KrkZ2255';                               // SMTP password
 					$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
 					$mail->Port       = 587;                                    // TCP port to connect to
 
@@ -127,8 +142,11 @@
 					// Content
 					$mail->isHTML(true);                                  // Set email format to HTML
 					$mail->Subject = $confirmMail;
-					$mail->Body    = '<h1>'.$requestAccepted.'</h1><br><br>'.$sentContactMessage.'<br><p style="color:grey; white-space:pre-wrap;">'.$user_message.'</p>';
+					$mail->Body    = '<h1 style="background-color:#2B75EB; padding:10px; color:white; text-align:center;">'.$requestAccepted.'</h1><br><br>'.$sentContactMessage.'<br><p style="color:black; white-space:pre-wrap; background-color: #E5E5E5;">'.$user_message.'</p><div style="background-color:#2B75EB; height:10px;"></div>';
 					$mail->send();
+					
+					unset($_POST);
+					$confirmContact = $confirmContactMessage;
 			}
 			
         }

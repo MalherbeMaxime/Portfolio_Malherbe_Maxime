@@ -9,26 +9,43 @@
 	text-decoration:underline;
 }
 
+@media (max-width: 1200px) {
+  .contenu
+  {
+    width: 500px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contenu
+  {
+    width: 35%;
+  }
+}
+
 .contenu
 {
 	margin-right:auto;
 	margin-left: auto;
-	width: 35%;
 }
 
 .contenu img /* The picture's state changes from opacity 0 to 1 on refresh */
 {
 
-    animation: fadein 5s;
-    -moz-animation: fadein 5s;
-    -webkit-animation: fadein 5s;
-    -o-animation: fadein 5s;
+    animation: fadein 3s;
+    -moz-animation: fadein 3s;
+    -webkit-animation: fadein 3s;
+    -o-animation: fadein 3s;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 30%;
 	marin-bottom: 30%;
-	width: 60%;
+	width: 400px;
+	border-top: #2B75EB solid 4px;
+	border-right: #2B75EB solid 4px;
+	border-left: #2B75EB solid 4px;
+	border-radius: 10px 10px 0px 0px;
 }
 
 .contenu p
@@ -39,7 +56,40 @@
     -o-animation: movement 2s;
 	text-align: center;
 	font-size: 4em;
-	background-color: rgba(0,0,0,0.5);
+	color: white;
+	background-color: #2B75EB;
+}
+
+@media (max-width: 1200px) {
+  .desc
+  {
+    margin-left: 25%;
+	margin-right: 25%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .desc
+  {
+   	margin-left: 35%;
+	margin-right: 35%;
+  }
+}
+
+
+.desc
+{
+	background-color: #E5E5E5;
+	margin-top: 100px;
+	padding: 1em;
+	border-radius: 5px;
+	text-align: justify;
+	text-justify: inter-word;
+    animation: fadein 5s;
+    -moz-animation: fadein 5s;
+    -webkit-animation: fadein 5s;
+    -o-animation: fadein 5s;
+
 }
 
 @keyframes movement {

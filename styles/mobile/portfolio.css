@@ -1,22 +1,26 @@
-.video
+video
 {
-	width: 80vw;
-	height: 50vw;
+	height: auto;
+	width: 100vw;
+	margin-left:0;
+	margin-right:0;
 }
 
-.divideo
+.video
 {
-	width: 80vw;
+	width: auto;
 }
 
 .cv
 {
 	margin: 0;
+	font-size: 1.8em;
 }
 
 .commentaires
 {
 	margin: 0;
+	font-size: 1.5em;
 }
 
 .illustration1
@@ -42,17 +46,18 @@
 
 .menunav li
 {
-	font-size: 1.5em;
+	font-size: 2.5em;
 }
 
 form 
 {
-	width: 80%;
+	width: 100%;
 }
 
 input, textarea
 {
 	height:50px;
+	padding: 0px;
 }
 
 .buttonCGU

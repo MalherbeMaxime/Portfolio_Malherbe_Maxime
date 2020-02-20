@@ -6,11 +6,10 @@
 
 body
 {
-	background-image: url("../../images/background.jpg");
-	background-color: black;
+	background-color: white;
 	background-attachment: fixed;
 	background-position: center;
-	color: white;
+	color: black;
 }
 
 a
@@ -20,54 +19,101 @@ a
 	text-decoration:none;
 }
 
-.menu
+header
 {
-	background-color: #272727;
-	border-bottom: black solid 3px;
-	box-shadow: black 2px 2px 5px;
+	margin-bottom: 80px;
+}
+@media (min-width: 1200px){
+  .menu ul
+  {
+    font-size: 2.5em;
+  }
 }
 
 
+@media (max-width: 1200px) {
+  .menu ul
+  {
+    font-size: 1.5em;
+  }
+}
+
+.menu
+{
+	background-color: #2B75EB;
+	border-bottom: black solid 3px;		
+	box-shadow: black 2px 2px 5px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+	
 .menu ul
 {
 	list-style-type: none;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: no-wrap;
-	justify-content: space-around;
-	margin-left: 5%;
-	margin-right: 5%;
-	font-size: 2.5em;
+	justify-content: center;
 }
 
 .menu li
 {
-	padding: 1em;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 1em;
+	padding-left: 1em;
 	transition: 0.3s;
-	border-left: rgba(255,255,255,0.1) solid 1px;
-	border-right: rgba(255,255,255,0.1) solid 1px;
-	box-shadow: 2px 0 10px 1px black, -2px 0 10px -1px black;
+	border-left: rgba(0,0,0,0.5) solid 1px;
+	border-right: rgba(0,0,0,0.5) solid 1px;
+	margin-left: 50px;
+	margin-right: 50px;
+	overflow: hidden;
+	white-space:nowrap;
 
 }
 
 .menu li:hover
 {
-	background-color: rgba(0,0,0,0.5);
+	background-color: #57C7FF;
 	transition: 0.3s;
-	padding-left: 1.3em;
-	padding-right: 1.3em;
-	margin-left: -0.3em;
-	margin-right: -0.3em;
+	padding-left: 50px;
+	padding-right: 50px;
+	margin-left: 40px;
+	margin-right: 40px;
+}
+
+button /* Aspect of the button */
+{
+	background-color: #2B75EB;
+	border: none;
+	border-radius: 5px;
+	padding: 3px;
+	font-size: 1.5em;
+	color: white;
+	transition:0.3s;
+	margin-top: 50px;
+	width: 140px;
+
+}
+
+button:hover
+{
+	transition:0.3s;
+	background-color: #57C7FF;
+	width: 150px;
 }
 
 footer
 {
 	text-align: center;
-	background-color: rgba(0,0,0,0.5);
+	background-color: #2B75EB;
 	width:100%;
 	padding-bottom: 5px;
 	padding-top: 5px;
 	margin-top: 20vh;
+	color: white;
 
 }
 
@@ -75,6 +121,7 @@ footer a
 {
 	font-weight: bold;
 	text-decoration:underline;
+	color: white;
 }
 
 .socialnetworks
@@ -82,6 +129,7 @@ footer a
 	display:flex;
 	justify-content: space-evenly;
 	margin-left:80%;
+	margin-bottom: 1em;
 
 }
 
@@ -93,10 +141,12 @@ footer a
 	margin-right: 15%;
 }
 
-.errors
+.errorsdiv
 {
 	color: red;
 	text-align: center;
 	font-weight: bold;
 	font-size: 1.2em;
+	display: flex;
+	flex-direction: column;
 }

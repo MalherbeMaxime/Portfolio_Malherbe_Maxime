@@ -16,7 +16,7 @@ form div
 label 
 {
   display: inline-block;
-  width: 110px;
+  width: 80%;
 }
 
 input, textarea
@@ -24,9 +24,15 @@ input, textarea
 	width: 100%;
 }
 
+h1
+{
+	text-align: center;
+	margin-top: 50px;
+}
+
 .contain
 {
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(43, 117, 235,0.8);
 	margin-left: 30%;
 	margin-right: 30%;
 	margin-top: 100px;
@@ -40,7 +46,8 @@ input, textarea
 	font-size: 2em;
 	margin-top: 1em;
 	margin-bottom: 1em;
-	background-color: rgba(255,255,255,0.1);
+	background-color: rgba(0,0,0,0.1);
+	color: black;
 }
 
 .lien:hover
@@ -60,11 +67,12 @@ input, textarea
 .adda
 {
 	font-size: 3em;
+	color: black;
 }
 
 .addp
 {
-	border-top: white solid 1px;
+	border-top: black solid 1px;
 	padding-top: 50px;
 	padding-bottom: 50px;
 	text-align:center;

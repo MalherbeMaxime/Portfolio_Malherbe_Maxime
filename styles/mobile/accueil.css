@@ -14,3 +14,21 @@
 {
 	font-size: 5em;
 }
+
+.langs a img
+{
+	width:10vw;
+	
+}
+
+.langs
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.desc
+{
+	font-size: 2em;
+}

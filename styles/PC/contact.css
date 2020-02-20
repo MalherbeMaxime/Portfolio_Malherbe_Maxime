@@ -5,15 +5,16 @@
 
 .contform
 {
-	background-color: rgba(0,0,0,0.5);
+	background-color: #E5E5E5;
 	margin: 5em;
 	padding: 1em;
+	border-radius: 5px;
 }
 
 h2
 {
 	text-align:center;
-	border-bottom: rgba(255,255,255,0.2) solid 1px;
+	border-bottom: rgba(0,0,0,0.2) solid 1px;
 	padding-bottom: 0.5em;
 	font-size: 2em;
 }
@@ -36,35 +37,21 @@ form div
 label 
 {
   display: inline-block;
-  width: 110px;
+  width: 80%;
 }
 
 input, textarea
 {
 	width: 100%;
+	padding: 10px;
+	font-size: 1.2em;
+	border-color: transparent;
+	border-radius: 5px;
 }
 
 .button { /* button's div, used to center the button */
 	display: flex;
 	justify-content: center;
-}
-
-button /* Aspect of the button */
-{
-	background-color: grey;
-	border-color: #282828;
-	padding: 3px;
-	padding-left:15px;
-	padding-right:15px;
-	font-size: 1.5em;
-	color: white;
-	transition:0.1s;
-}
-
-button:hover
-{
-	background-color: #393939;
-	transition:0.1s;
 }
 
 .txtbuttonCGU
@@ -73,14 +60,14 @@ button:hover
 	vertical-align: baseline;
 }
 
-.buttonCGU
+input.buttonCGU
 {
-	width: 10px;
+	width: auto;
 }
 
 .g-recaptcha
 {
 	display:flex;
 	justify-content: center;
-	margin-top: 2em;
+	margin-top: 0em;
 }

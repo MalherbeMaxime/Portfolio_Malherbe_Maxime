@@ -1,5 +1,6 @@
 <?php
 	$page = "portfolio";
+	$isCorrect = True;
 	include("header.php");
 	include("traitement_comment.php");
 	
@@ -24,7 +25,7 @@
 		echo'
 			<div class="video" disablePictureInPicture controlsList="nodownload">
 				<video controls>
-					<source src="https://www.dropbox.com/s/4a9i17fb9hqwmpi/20190202_123156.mp4?dl=1" type="video/mp4">
+					<source src="/videos/presentation.mp4" type="video/mp4">
 				</video>
 			</div>';
 	}
@@ -35,6 +36,7 @@
 		<div class="menunav">
 			<ul>
 			<?php
+			//menu créant des références vers les titres des articles
 			foreach($articles AS $article){
 				echo '<li><a class="navbutton" href="#'.$article['titre'].'">'.$article['titre'].'</a></li>';
 			}
@@ -44,6 +46,7 @@
 			<!-- ------------------------------------------------ -->
 		<div class="cv">
 		<?php
+		//affiche les articles du portfolio
 		foreach($articles AS $article){
 			echo '<article>';
 			echo '<h2 id="'.$article['titre'].'">'.$article['titre'].'</h2>';
@@ -60,12 +63,13 @@
 			<h2><?php echo $recommendation; ?></h2>
 			
 			<?php
-			
+			//si il n'y a pas de commentaire, on l'affiche à l'utilisateur
 			if(empty($commentaires)){
 				echo '<div class="com">';
 				echo $noComment;
 				echo '</div>';
 			}
+			//affichage des commentaires
 			foreach($commentaires as $commentaire){
 				echo '<div class="com">';
 				echo 	'"'.$commentaire['message'].'"';
@@ -85,29 +89,32 @@
 			<!-- ------------------------------------------------ -->
 			
 			<h2><?php echo $postComment; ?></h2>
-			<form id="formulairecommentaires" method="post">
-			<div>
-				<label for="mail"><?php echo $emailAddress; ?> :</label>
-				<input type="email" id="mail" name="user_mail">
-			</div>
-			<div>
-				<label for="msg"><?php echo $tr_message; ?> :</label>
-				<textarea id="msg" name="user_message"></textarea>
-			</div>
-			<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-			<div class="g-recaptcha" data-sitekey="CHANGER"></div> <!-- PENSER A DEFINIR UNE CLE LORS DE LA MISE EN LIGNE DU SITE -->
-			<div class="button">
-				<button type="submit"><?php echo $confirmButton; ?></button> <!-- Ajouter une case à cocher pour valider la lecture des CGU -->
-			</div>
 			
 				<?php 
 				//affiche les éventuelles erreurs de validations
 				if (!empty($errors)) {
-				foreach ($errors as $error) {
-                echo '<div class="errors">' . $error . '</div>';
+					echo'<div class="errorsdiv">';
+					foreach ($errors as $error) {
+						echo '<div class="errors">' . $error . '</div>';
 					}
+					echo '</div>';
 				}   
 				?>
+				
+			<form id="formulairecommentaires" method="post">
+			<div>
+				<label for="mail"><?php echo $emailAddress; ?> :</label>
+				<input type="email" id="mail" name="user_mail"<?php if(!empty($_POST['user_mail']) AND !empty($errors)){ echo'value="'.$_POST['user_mail'].'"';}?>>
+			</div>
+			<div>
+				<label for="msg"><?php echo $tr_message; ?> :</label>
+				<textarea id="msg" name="user_message"><?php if(!empty($_POST['user_message']) AND !empty($errors)){ echo$_POST['user_message'];}?></textarea>
+			</div>
+			<div class="g-recaptcha" data-sitekey="6LeRTdoUAAAAACuGk-SiZwYLc1KXZKtQHOCFq9ma"></div> <!-- PENSER A DEFINIR UNE CLE LORS DE LA MISE EN LIGNE DU SITE -->
+			<div class="button">
+				<button type="submit"><?php echo $confirmButton; ?></button> <!-- Ajouter une case à cocher pour valider la lecture des CGU -->
+			</div>
+			
 			
 			</form>
 		</div>

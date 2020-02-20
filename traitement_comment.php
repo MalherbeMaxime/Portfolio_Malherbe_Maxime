@@ -1,4 +1,8 @@
 <?php 
+	if($isCorrect != True){
+		header('Location: 404.php');
+	}
+
 
 	//Importation des class Yandex translator
 	use Yandex\Translate\Translator;
@@ -15,7 +19,7 @@
 	
 	
 	
-	
+	//ajout d'un commentaire dans la BDD
 	function addComment($user_message, $lang, $pdo, $user, $originLang)
 	{
 		$sql="INSERT INTO comments (message, user_id, date, lang, origin) VALUES (:user_message, :user_id, NOW(), :lang, :origin)";
@@ -60,35 +64,40 @@
 		//vérifie si l'utilisateur m'a déjà contacté en vérifiant la présence de son mail dans la BDD
 		if(empty($user["email"])){
 			$formIsValid = false;
-			$errors[] = "Vous devez me contacter au moins une fois via la page de contact avant de laisser un avis !";
+			$errors[] = $mustContactBeforeReview;
 		}
 
 		if(!empty($message["user_id"])){
             $formIsValid = false;
-            $errors[] = "Vous ne pouvez poster qu'un avis !";
+            $errors[] = $onlyOneReview;
 		}
 
 		//si le message est vide
         if(empty($user_message) ){ 
             $formIsValid = false;
-            $errors[] = "Veuillez entrer un avis !";
+            $errors[] = $noReview;
         }
         elseif(mb_strlen($user_message) <= 2){
             $formIsValid = false;
-            $errors[] = "Votre avis est trop court !";
+            $errors[] = $reviewTooShort;
         }
         elseif(mb_strlen($user_message) > 1500){
             $formIsValid = false;
-            $errors[] = "Votre avis est trop long !";
+            $errors[] = $reviewTooLong;
         }
 
         //validation de l'user_mail
         if(!filter_var($user_mail, FILTER_VALIDATE_EMAIL)){
             $formIsValid = false;
-            $errors[] = "Votre email n'est pas valide !";
+            $errors[] = $emailIsInvalid;
         }
+		
+		if(empty($_POST['g-recaptcha-response'])){
+			$formIsValid = false;
+            $errors[] = $invalidCaptcha;
+		}
 
-        //si le formulaire est toujours valide... 
+        //si le formulaire est toujours valide on vérifie la langue du commentaire afin de le traduire (penser à faire une fonction plus tard)
         if ($formIsValid == true){
 			
 			$detectlang = $translator->detect($user_message);
